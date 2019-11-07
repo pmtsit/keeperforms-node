@@ -14,6 +14,7 @@ import NotificationsService from '../services/notifications';
 import PostsService from '../services/posts';
 import BlocksService from '../services/blocks';
 import PlacesService from '../services/places';
+import AlertsService from '../services/alerts';
 
 export default class KeeperClient {
   private readonly debug = createDebug('keeper-client');
@@ -35,6 +36,7 @@ export default class KeeperClient {
   public readonly posts: PostsService;
   public readonly blocks: BlocksService;
   public readonly places: PlacesService;
+  public readonly alerts: AlertsService;
 
   constructor(username: string, apiKey: string, workspace: string = '') {
     this.username = username;
@@ -55,7 +57,7 @@ export default class KeeperClient {
           };
 
     this.axios = axios.create({
-      baseURL: 'https://edaba898.ngrok.io/v1',
+      baseURL: 'https://kf-4-server-worker-yjlts26z3q-ew.a.run.app/v1',
       headers,
       timeout: 5000,
     });
@@ -74,6 +76,7 @@ export default class KeeperClient {
     this.posts = new PostsService(this.axios);
     this.blocks = new BlocksService(this.axios);
     this.places = new PlacesService(this.axios);
+    this.alerts = new AlertsService(this.axios);
   }
 
   public setWorkspace(workspace: string): void {
