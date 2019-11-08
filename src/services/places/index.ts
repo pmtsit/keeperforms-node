@@ -5,17 +5,22 @@ import { classToPlain, Expose, plainToClass } from 'class-transformer';
 
 export interface ICreatePlaceParams {
   name: string;
-  workspace: string;
-  location: string;
-  googlePlaceId: string;
+  description?: string;
+  imageUrl?: string;
+  address?: string;
+  googlePlaceId?: string;
+  location?: string;
 }
 
 export class CreatePlaceParams implements ICreatePlaceParams {
   public name!: string;
-  public workspace!: string;
-  public location!: string;
+  public description?: string;
+  @Expose({ name: 'image_url' })
+  public imageUrl?: string;
+  public address?: string;
   @Expose({ name: 'google_place_id' })
-  public googlePlaceId!: string;
+  public googlePlaceId?: string;
+  public location?: string;
 
   constructor(createPlaceParams: ICreatePlaceParams) {
     Object.assign(this, createPlaceParams);
@@ -24,17 +29,22 @@ export class CreatePlaceParams implements ICreatePlaceParams {
 
 export interface IPatchPlaceParams {
   name?: string;
-  workspace?: string;
-  location?: string;
+  description?: string;
+  imageUrl?: string;
+  address?: string;
   googlePlaceId?: string;
+  location?: string;
 }
 
 export class PatchPlaceParams implements IPatchPlaceParams {
   public name?: string;
-  public workspace?: string;
-  public location?: string;
+  public description?: string;
+  @Expose({ name: 'image_url' })
+  public imageUrl?: string;
+  public address?: string;
   @Expose({ name: 'google_place_id' })
   public googlePlaceId?: string;
+  public location?: string;
 
   constructor(patchPlaceParams: IPatchPlaceParams) {
     Object.assign(this, patchPlaceParams);

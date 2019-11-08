@@ -85,7 +85,6 @@ export default class TemplatesService extends BaseService<Template> {
 
   public async list(offset?: number, limit?: number): Promise<Template[]> {
     const result = await super._list(offset, limit);
-console.log(`templates - ${JSON.stringify(result)}`);
 
     const templates = result ? plainToClass(Template, result) : [];
 
