@@ -28,5 +28,4 @@ export class User {
   @Type(() => Date)
   @Expose({ name: 'date_of_birth' })
   public dateOfBirth?: Date;
-
 }

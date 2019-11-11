@@ -1,7 +1,7 @@
-import {AxiosInstance} from 'axios';
-import {Client} from '../../models/client';
+import { AxiosInstance } from 'axios';
+import { Client } from '../../models/client';
 import BaseService from '../base';
-import {classToPlain, Expose, plainToClass} from 'class-transformer';
+import { classToPlain, Expose, plainToClass } from 'class-transformer';
 
 export interface ICreateClientParams {
   name: string;
@@ -11,9 +11,9 @@ export interface ICreateClientParams {
 
 export class CreateClientParams implements ICreateClientParams {
   public name!: string;
-  @Expose({name: "client_id"})
+  @Expose({ name: 'client_id' })
   public clientId!: string;
-  @Expose({name: "external_id"})
+  @Expose({ name: 'external_id' })
   public externalId?: string;
 
   constructor(createClientParams: ICreateClientParams) {
@@ -28,7 +28,7 @@ export interface IPatchClientParams {
 
 export class PatchClientParams implements IPatchClientParams {
   public name?: string;
-  @Expose({name: "external_id"})
+  @Expose({ name: 'external_id' })
   public externalId?: string;
 
   constructor(patchClientParams: IPatchClientParams) {

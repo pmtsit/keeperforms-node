@@ -42,7 +42,7 @@ export class Place {
   location?: string;
   @Expose({ name: 'google_place_id' })
   googlePlaceId?: string;
-};
+}
 
 export class PatchProjectParams implements IPatchProjectParams {
   name?: string;
@@ -95,4 +95,3 @@ export default class ProjectsService extends BaseService<Project> {
     return project;
   }
 }
-

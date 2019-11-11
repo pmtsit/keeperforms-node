@@ -57,7 +57,7 @@ export default class KeeperClient {
           };
 
     this.axios = axios.create({
-      baseURL: 'https://kf-4-server-worker-yjlts26z3q-ew.a.run.app/v1',
+      baseURL: 'https://api4dev.keeperforms.com/v1',
       headers,
       timeout: 5000,
     });

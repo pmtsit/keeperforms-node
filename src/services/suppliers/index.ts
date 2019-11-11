@@ -76,4 +76,3 @@ export default class SuppliersService extends BaseService<Supplier> {
     return supplier;
   }
 }
-

@@ -8,4 +8,3 @@ export class Client {
   @Expose({ name: 'external_id' })
   public externalId?: string;
 }
-

@@ -1,8 +1,8 @@
-import {AxiosInstance} from 'axios';
-import createDebug, {Debugger} from 'debug';
-import {IDeleteResult} from '../../models/delete-result';
-import {plainToClass} from 'class-transformer';
-import {User} from '../../models/user';
+import { AxiosInstance } from 'axios';
+import createDebug, { Debugger } from 'debug';
+import { IDeleteResult } from '../../models/delete-result';
+import { plainToClass } from 'class-transformer';
+import { User } from '../../models/user';
 
 export default abstract class BaseService<T> {
   protected readonly axios?: AxiosInstance;
@@ -25,8 +25,7 @@ export default abstract class BaseService<T> {
       };
     }
 
-    const res = await this.axios
-      .delete(`${this.endpoint}/${id}`);
+    const res = await this.axios.delete(`${this.endpoint}/${id}`);
 
     const result = res.data as IDeleteResult;
 
@@ -101,8 +100,7 @@ export default abstract class BaseService<T> {
       return null;
     }
 
-    const res = await this.axios
-      .post<T>(this.endpoint, params);
+    const res = await this.axios.post<T>(this.endpoint, params);
 
     const item = res.data as T;
 
@@ -120,8 +118,7 @@ export default abstract class BaseService<T> {
       return null;
     }
 
-    const res = await this.axios
-      .patch(`${this.endpoint}/${id}`, params);
+    const res = await this.axios.patch(`${this.endpoint}/${id}`, params);
 
     const item = res.data as T;
 

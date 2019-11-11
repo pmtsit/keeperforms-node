@@ -1,7 +1,7 @@
 {
-  "name": "keeper-forms",
+  "name": "keeperforms",
   "description": "A KeeperForms helper library",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Open Source Team <opensource@pmtsit.com>",
   "homepage": "https://pmtsit.com",
   "keywords": [
@@ -64,7 +64,7 @@
     "prepublishOnly": "",
     "prepublishOnly111": "npm test && npm run lint",
     "postPublish": "npm version patch",
-    "preversion": "npm run lint",
+    "preversion1": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
     "lint": "tslint -p tsconfig.json"
