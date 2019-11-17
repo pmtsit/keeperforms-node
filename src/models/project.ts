@@ -1,24 +1,28 @@
-import { classToPlain, Expose, plainToClass, Type } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
 export class Project {
   public id!: string;
   public name!: string;
+  @Type(() => Workspace)
   public workspace!: Workspace;
+  @Type(() => Location)
   public location!: Location;
   public active!: boolean;
   public place?: Place;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
   public description?: string;
+  @Type(() => QuantitySettings)
   @Expose({ name: 'quantity_settings' })
   public quantitySettings?: QuantitySettings;
+  @Type(() => WeatherSettings)
   @Expose({ name: 'weather_settings' })
   public weatherSettings?: WeatherSettings;
 }
 
-export interface Workspace {
-  id: string;
-  name: string;
+export class Workspace {
+  public id!: string;
+  public name!: string;
 }
 
 export interface Location {
@@ -38,11 +42,11 @@ export class Place {
   };
 }
 
-export interface QuantitySettings {
-  active: boolean;
-  style: QuantitySectionStyle;
-  initReportWithPastItems: boolean;
-  columns: QuantitySectionColumnDefinition[];
+export class QuantitySettings {
+  public active!: boolean;
+  public style!: QuantitySectionStyle;
+  public initReportWithPastItems!: boolean;
+  public columns!: QuantitySectionColumnDefinition[];
 }
 
 export enum QuantitySectionStyle {
@@ -61,6 +65,6 @@ export enum ProjectMemberRole {
   SUPERVISOR = 'supervisor',
 }
 
-export interface WeatherSettings {
-  weatherId: string;
+export class WeatherSettings {
+  public weatherId!: string;
 }

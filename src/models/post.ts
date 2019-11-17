@@ -1,18 +1,25 @@
 import { DailyReportSection, Quantity } from './quantity';
 import { DocumentBlock } from './document';
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
+import { User } from './user';
 
 export class Post {
   public id!: string;
+  @Type(() => User)
   @Expose({ name: 'created_by' })
   public createdBy!: User;
+  @Type(() => Date)
   @Expose({ name: 'created_at' })
   public createdAt!: Date;
   public text!: string | null;
+  @Type(() => Attachment)
   public attachments!: Attachment[];
+  @Type(() => DocumentBlock)
   @Expose({ name: 'document_block' })
   public documentBlock?: DocumentBlock;
+  @Type(() => DailyReportSection)
   public section?: DailyReportSection;
+  @Type(() => Quantity)
   public quantity?: Quantity;
 }
 
@@ -21,17 +28,4 @@ export class Attachment {
   @Expose({ name: 'mime_type' })
   public mimeType!: string;
   public src!: string;
-}
-
-export class User {
-  public bio!: string;
-  public email!: string;
-  @Expose({ name: 'first_name' })
-  public firstName!: string;
-  public id!: string;
-  @Expose({ name: 'image_url' })
-  public imageUrl?: string;
-  @Expose({ name: 'last_name' })
-  public lastName!: string;
-  public slug!: string;
 }

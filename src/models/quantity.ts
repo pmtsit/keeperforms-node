@@ -1,22 +1,25 @@
 import { Supplier } from './workspace';
-import { Block } from './template';
-import { Expose } from 'class-transformer';
-import { Place } from './project';
+import { Expose, Type } from 'class-transformer';
 import { DocumentBlock } from './document';
 import { ItemCategory } from './item-category';
 import { Post } from './post';
 
 export class Quantity {
   public id!: string;
+  @Type(() => Date)
   @Expose({ name: 'created_at' })
   public createdAt!: Date;
   @Expose({ name: 'created_by' })
   public createdBy!: string;
+  @Type(() => DocumentBlock)
   @Expose({ name: 'document_block' })
   public documentBlock!: DocumentBlock;
+  @Type(() => Supplier)
   public supplier!: Supplier;
+  @Type(() => Item)
   public item!: Item;
   public value!: number;
+  @Type(() => Post)
   public posts!: Post[];
 }
 
@@ -26,6 +29,7 @@ export class Item {
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
   public description?: string;
+  @Type(() => ItemCategory)
   @Expose({ name: 'item_category' })
   public itemCategory?: ItemCategory;
 }
@@ -37,6 +41,7 @@ export class DailyReportSection {
   public title!: string;
   @Expose({ name: 'view_order' })
   public viewOrder!: number;
+  @Type(() => Post)
   public posts!: Post[];
 }
 
@@ -58,17 +63,19 @@ export interface QuantityTotal {
   value: number;
 }
 
-export interface QuantityItem {
-  id: string;
-  name: string;
-  category: QuantityItemCategory;
+export class QuantityItem {
+  public id!: string;
+  public name!: string;
+  public category!: QuantityItemCategory;
 }
 
-export interface QuantityValue {
-  id: string;
-  supplier?: Supplier;
-  item: QuantityItem;
-  role: ProjectMemberRole;
-  value?: number;
-  notes?: string;
+export class QuantityValue {
+  public id!: string;
+  @Type(() => Supplier)
+  public supplier?: Supplier;
+  @Type(() => QuantityItem)
+  public item!: QuantityItem;
+  public role!: ProjectMemberRole;
+  public value?: number;
+  public notes?: string;
 }

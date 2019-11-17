@@ -1,24 +1,35 @@
 import { Project } from './project';
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
+import { User } from './user';
 
 export class Task {
   public id!: string;
+  @Type(() => Project)
   public project!: Project;
+  @Type(() => Task)
   public parent?: Task;
+  @Type(() => Task)
   public children?: Task[];
   public name!: string;
   public description?: string;
+  @Type(() => Timing)
   public planned!: Timing;
+  @Type(() => Timing)
   public actual!: Timing;
+  @Type(() => User)
   public assignee?: User;
   public estimation?: number;
+  @Type(() => TaskLink)
   public predecessors?: TaskLink[];
+  @Type(() => TaskLink)
   public successors?: TaskLink[];
 }
 
-export interface Timing {
-  start?: Date;
-  end?: Date;
+export class Timing {
+  @Type(() => Date)
+  public start?: Date;
+  @Type(() => Date)
+  public end?: Date;
 }
 
 export class TaskLink {
@@ -35,4 +46,3 @@ export class TaskLink {
   public finishAfterFinish!: boolean;
 }
 
-export type User = any;

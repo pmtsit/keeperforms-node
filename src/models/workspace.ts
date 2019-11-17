@@ -1,4 +1,4 @@
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
 export class Workspace {
   public id!: string;
@@ -7,6 +7,7 @@ export class Workspace {
   public description?: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
+  @Type(() => Supplier)
   public suppliers!: Supplier[];
 }
 

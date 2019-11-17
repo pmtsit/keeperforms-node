@@ -1,4 +1,4 @@
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 import { ItemCategory } from './item-category';
 
 export class Item {
@@ -7,6 +7,7 @@ export class Item {
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
   public description?: string;
+  @Type(() => ItemCategory)
   @Expose({ name: 'item_category' })
   public itemCategory?: ItemCategory;
 }

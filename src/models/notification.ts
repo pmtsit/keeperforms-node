@@ -1,7 +1,8 @@
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
 export class Notification {
   public id!: string;
+  @Type(() => Date)
   @Expose({ name: 'created_at' })
   public createdAt!: Date;
   public title!: string;
@@ -10,10 +11,11 @@ export class Notification {
   public imageUrl?: string;
   @Expose({ name: 'is_read' })
   public isRead!: boolean;
+  @Type(() => TargetNode)
   public target?: TargetNode[];
 }
-export interface TargetNode {
-  type: string;
-  id: string;
-  name?: string;
+export class TargetNode {
+  public type!: string;
+  public id!: string;
+  public name?: string;
 }
