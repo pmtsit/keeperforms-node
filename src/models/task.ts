@@ -26,4 +26,3 @@ export class Task {
   @Type(() => TaskLink)
   public successors?: TaskLink[];
 }
-

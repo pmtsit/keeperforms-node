@@ -15,4 +15,3 @@ export class Document {
   @Type(() => Project)
   public project: Project;
 }
-

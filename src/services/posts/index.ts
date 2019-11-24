@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios';
-import { Post} from '../../models/post';
+import { Post } from '../../models/post';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
 import { Attachment } from '../../models/attachment';

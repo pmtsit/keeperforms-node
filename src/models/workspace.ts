@@ -11,4 +11,3 @@ export class Workspace {
   @Type(() => Supplier)
   public suppliers: Supplier[];
 }
-

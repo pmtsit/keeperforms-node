@@ -1,5 +1,5 @@
 import KeeperClient from '../index';
-import { Workspace} from '../models/workspace';
+import { Workspace } from '../models/workspace';
 import { Quantity } from '../models/quantity';
 import { Item } from '../models/item';
 import { Supplier } from '../models/supplier';

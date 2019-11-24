@@ -23,4 +23,3 @@ export class Post {
   @Type(() => Quantity)
   public quantity?: Quantity;
 }
-

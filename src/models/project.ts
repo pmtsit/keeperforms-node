@@ -40,4 +40,3 @@ export enum ProjectMemberRole {
   WORK_MANAGER = 'work_manager',
   SUPERVISOR = 'supervisor',
 }
-

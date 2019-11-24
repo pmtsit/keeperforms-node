@@ -20,4 +20,3 @@ export class QuantitiesReportCriteria {
   @Type(() => QuantitiesReportCriteriaSorting)
   public sorting?: QuantitiesReportCriteriaSorting;
 }
-

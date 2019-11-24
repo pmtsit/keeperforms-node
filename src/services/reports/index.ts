@@ -1,7 +1,7 @@
 import BaseService from '../base';
 import { AxiosInstance } from 'axios';
 import QuantitiesReportService from './quantities';
-import { QuantitiesReportCriteria} from '../../models/reports/quantities-report-criteria';
+import { QuantitiesReportCriteria } from '../../models/reports/quantities-report-criteria';
 import { plainToClass } from 'class-transformer';
 import { QuantitiesReport } from '../../models/reports/quantities-report';
 

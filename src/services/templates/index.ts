@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios';
-import { Template} from '../../models/template';
+import { Template } from '../../models/template';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
 import { IDeleteResult } from '../../models/delete-result';
