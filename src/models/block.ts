@@ -1,14 +1,13 @@
 import { Expose, Type } from 'class-transformer';
-import { Supplier } from './supplier';
+import { App } from './app';
 
-export class Workspace {
+export class Block {
   public id: string;
+  @Type(() => App)
+  public app?: App;
+  public key: string;
   public name: string;
-  public slug: string;
   public description?: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
-  @Type(() => Supplier)
-  public suppliers: Supplier[];
 }
-

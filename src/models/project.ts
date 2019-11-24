@@ -1,13 +1,18 @@
 import { Expose, Type } from 'class-transformer';
+import { Workspace } from './workspace';
+import { QuantitySettings } from './quantity-settings';
+import { Place } from './place';
+import { WeatherSettings } from './weather-settings';
+import { ILocation } from './location.interface';
 
 export class Project {
-  public id!: string;
-  public name!: string;
+  public id: string;
+  public name: string;
   @Type(() => Workspace)
-  public workspace!: Workspace;
+  public workspace: Workspace;
   @Type(() => Location)
-  public location!: ILocation;
-  public active!: boolean;
+  public location: ILocation;
+  public active: boolean;
   public place?: Place;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
@@ -18,35 +23,6 @@ export class Project {
   @Type(() => WeatherSettings)
   @Expose({ name: 'weather_settings' })
   public weatherSettings?: WeatherSettings;
-}
-
-export class Workspace {
-  public id!: string;
-  public name!: string;
-}
-
-export interface ILocation {
-  address?: string;
-  latitude: number;
-  longitude: number;
-}
-
-export class Place {
-  public id!: string;
-  public name!: string;
-  public address?: string;
-  public location?: {
-    wkt: string;
-    latitude?: number;
-    longitude?: number;
-  };
-}
-
-export class QuantitySettings {
-  public active!: boolean;
-  public style!: QuantitySectionStyle;
-  public initReportWithPastItems!: boolean;
-  public columns!: IQuantitySectionColumnDefinition[];
 }
 
 export enum QuantitySectionStyle {
@@ -65,6 +41,3 @@ export enum ProjectMemberRole {
   SUPERVISOR = 'supervisor',
 }
 
-export class WeatherSettings {
-  public weatherId!: string;
-}

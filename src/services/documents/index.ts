@@ -10,8 +10,8 @@ export interface ICreateDocumentParams {
 }
 
 export class CreateDocumentParams implements ICreateDocumentParams {
-  public project!: string;
-  public template!: string;
+  public project: string;
+  public template: string;
   public date?: Date;
 
   constructor(createDocumentParams: ICreateDocumentParams) {

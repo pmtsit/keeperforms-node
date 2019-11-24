@@ -11,10 +11,10 @@ export interface ICreateAlertParams {
 }
 
 export class CreateAlertParams implements ICreateAlertParams {
-  public message!: string;
-  public start!: Date;
-  public end!: Date;
-  public variant!: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light' | undefined;
+  public message: string;
+  public start: Date;
+  public end: Date;
+  public variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light' | undefined;
 
   constructor(createAlertParams: ICreateAlertParams) {
     Object.assign(this, createAlertParams);

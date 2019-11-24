@@ -12,10 +12,10 @@ export interface ICreateItemParams {
 }
 
 export class CreateItemParams implements ICreateItemParams {
-  public workspace!: string;
-  public name!: string;
+  public workspace: string;
+  public name: string;
   @Expose({ name: 'item_category' })
-  public itemCategory!: string;
+  public itemCategory: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
   public description?: string;

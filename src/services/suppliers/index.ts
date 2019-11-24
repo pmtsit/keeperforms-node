@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
-import { Supplier } from '../../models/workspace';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
+import { Supplier } from '../../models/supplier';
 
 export interface ICreateSupplierParams {
   workspace: string;
@@ -11,8 +11,8 @@ export interface ICreateSupplierParams {
 }
 
 export class CreateSupplierParams implements ICreateSupplierParams {
-  public workspace!: string;
-  public name!: string;
+  public workspace: string;
+  public name: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
   public description?: string;

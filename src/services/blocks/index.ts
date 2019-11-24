@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
-import { Block } from '../../models/template';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
+import { Block } from '../../models/block';
 
 // tslint:disable-next-line:no-empty-interface
 export interface ICreateBlockParams {}

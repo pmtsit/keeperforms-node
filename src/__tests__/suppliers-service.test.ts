@@ -1,5 +1,6 @@
 import KeeperClient from '../index';
-import { Supplier, Workspace } from '../models/workspace';
+import { Workspace } from '../models/workspace';
+import { Supplier } from '../models/supplier';
 
 let originalNumberOfSuppliers = 0;
 let suppliers: Supplier[] = [];

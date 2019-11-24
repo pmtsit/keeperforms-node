@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
-import { Place } from '../../models/project';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
+import { Place } from '../../models/place';
 
 export interface ICreatePlaceParams {
   name: string;
@@ -13,7 +13,7 @@ export interface ICreatePlaceParams {
 }
 
 export class CreatePlaceParams implements ICreatePlaceParams {
-  public name!: string;
+  public name: string;
   public description?: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;

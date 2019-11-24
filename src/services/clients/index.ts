@@ -10,9 +10,9 @@ export interface ICreateClientParams {
 }
 
 export class CreateClientParams implements ICreateClientParams {
-  public name!: string;
+  public name: string;
   @Expose({ name: 'client_id' })
-  public clientId!: string;
+  public clientId: string;
   @Expose({ name: 'external_id' })
   public externalId?: string;
 

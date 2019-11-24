@@ -1,8 +1,9 @@
 import BaseService from '../base';
 import { AxiosInstance } from 'axios';
 import QuantitiesReportService from './quantities';
-import { QuantitiesReportCriteria, QuantitiesReport } from '../../models/reports/quantities';
+import { QuantitiesReportCriteria} from '../../models/reports/quantities-report-criteria';
 import { plainToClass } from 'class-transformer';
+import { QuantitiesReport } from '../../models/reports/quantities-report';
 
 export default class ReportsService extends BaseService<any> {
   public readonly quantities: QuantitiesReportService;

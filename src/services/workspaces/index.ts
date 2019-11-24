@@ -9,7 +9,7 @@ export interface ICreateWorkspaceParams {
 }
 
 export class CreateWorkspaceParams implements ICreateWorkspaceParams {
-  public name!: string;
+  public name: string;
 
   constructor(createWorkspaceParams: ICreateWorkspaceParams) {
     Object.assign(this, createWorkspaceParams);

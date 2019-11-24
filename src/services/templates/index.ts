@@ -1,8 +1,9 @@
 import { AxiosInstance } from 'axios';
-import { Template, TemplateBlock } from '../../models/template';
+import { Template} from '../../models/template';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
 import { IDeleteResult } from '../../models/delete-result';
+import { TemplateBlock } from '../../models/template-block';
 
 export interface ICreateTemplateParams {
   workspace: string;
@@ -12,8 +13,8 @@ export interface ICreateTemplateParams {
 }
 
 export class CreateTemplateParams implements ICreateTemplateParams {
-  public workspace!: string;
-  public name!: string;
+  public workspace: string;
+  public name: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
   public description?: string;
@@ -48,8 +49,8 @@ export interface ICreateTemplateBlockParams {
 }
 
 export class CreateTemplateBlockParams implements ICreateTemplateBlockParams {
-  public block!: string;
-  public title!: string;
+  public block: string;
+  public title: string;
   @Expose({ name: 'sub_title' })
   public subTitle?: string;
   @Expose({ name: 'view_order' })

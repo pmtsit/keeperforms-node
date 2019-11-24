@@ -11,8 +11,8 @@ export interface ICreateItemCategoryParams {
 }
 
 export class CreateItemCategoryParams implements ICreateItemCategoryParams {
-  public workspace!: string;
-  public name!: string;
+  public workspace: string;
+  public name: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
   public description?: string;

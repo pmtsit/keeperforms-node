@@ -2,7 +2,7 @@ import { AxiosInstance } from 'axios';
 import { Task } from '../../models/task';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
-import { Timing } from '../../models/task';
+import { Timing } from '../../models/timing';
 
 export interface ICreateTaskParams {
   project: string;
@@ -11,8 +11,8 @@ export interface ICreateTaskParams {
 }
 
 export class CreateTaskParams implements ICreateTaskParams {
-  public project!: string;
-  public name!: string;
+  public project: string;
+  public name: string;
   public description?: string;
 
   constructor(createTaskParams: ICreateTaskParams) {

@@ -12,9 +12,9 @@ export interface ICreateQuantityParams {
 
 export class CreateQuantityParams implements ICreateQuantityParams {
   @Expose({ name: 'document_block' })
-  public documentBlock!: string;
-  public supplier!: string;
-  public item!: string;
+  public documentBlock: string;
+  public supplier: string;
+  public item: string;
   public value?: number;
 
   constructor(createQuantityParams: ICreateQuantityParams) {

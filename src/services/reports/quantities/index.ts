@@ -2,7 +2,6 @@ import { AxiosInstance } from 'axios';
 import { Quantity } from '../../../models/quantity';
 import BaseService from '../../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
-import { QuantitiesReportCriteria, QuantitiesReport } from '../../../models/reports/quantities';
 
 export interface ICreateQuantityParams {
   documentBlock: string;
@@ -13,9 +12,9 @@ export interface ICreateQuantityParams {
 
 export class CreateQuantityParams implements ICreateQuantityParams {
   @Expose({ name: 'document_block' })
-  public documentBlock!: string;
-  public supplier!: string;
-  public item!: string;
+  public documentBlock: string;
+  public supplier: string;
+  public item: string;
   public value?: number;
 
   constructor(createQuantityParams: ICreateQuantityParams) {

@@ -1,8 +1,9 @@
 import KeeperClient from '../index';
-import { Workspace, Supplier } from '../models/workspace';
+import { Workspace} from '../models/workspace';
 import { Quantity } from '../models/quantity';
-import { DocumentBlock } from '../models/document';
 import { Item } from '../models/item';
+import { Supplier } from '../models/supplier';
+import { DocumentBlock } from '../models/document-block';
 
 let originalNumberOfQuantities = 0;
 let quantities: Quantity[] = [];

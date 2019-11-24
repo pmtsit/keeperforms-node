@@ -1,7 +1,8 @@
 import { AxiosInstance } from 'axios';
-import { Post, Attachment } from '../../models/post';
+import { Post} from '../../models/post';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
+import { Attachment } from '../../models/attachment';
 
 export interface ICreatePostParams {
   project: string;
@@ -11,10 +12,10 @@ export interface ICreatePostParams {
 }
 
 export class CreatePostParams implements ICreatePostParams {
-  public project!: string;
+  public project: string;
   @Expose({ name: 'document_block' })
-  public documentBlock!: string;
-  public text!: string;
+  public documentBlock: string;
+  public text: string;
   public attachments?: Attachment[];
 
   constructor(createPostParams: ICreatePostParams) {
