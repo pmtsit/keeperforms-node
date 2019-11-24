@@ -45,4 +45,3 @@ export class TaskLink {
   @Expose({ name: 'finish_after_finish' })
   public finishAfterFinish!: boolean;
 }
-

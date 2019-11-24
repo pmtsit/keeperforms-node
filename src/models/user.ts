@@ -12,4 +12,3 @@ export class User {
   public lastName!: string;
   public slug!: string;
 }
-

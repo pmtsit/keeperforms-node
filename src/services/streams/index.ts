@@ -105,5 +105,4 @@ export default class StreamsService extends BaseService<Stream> {
 
     return posts as Post[];
   }
-
 }
