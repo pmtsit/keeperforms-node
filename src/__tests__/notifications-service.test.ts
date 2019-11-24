@@ -6,7 +6,7 @@ let originalNumberOfNotifications = 0;
 let notifications: Notification[] = [];
 let selectedWorkspace: Workspace | null = null;
 let selectedNotification: Notification | null = null;
-let notificationName: string;
+// let notificationName: string;
 
 let keeperClient: KeeperClient;
 
@@ -49,7 +49,7 @@ describe('Notifications Service Tests', () => {
       console.log(notificationResult);
 
       expect(notificationResult).toBeDefined();
-      expect(notificationResult).toHaveProperty('name', notificationName);
+      // expect(notificationResult).toHaveProperty('name', notificationName);
       expect(notificationResult).toHaveProperty('isRead', true);
     }
   }, 10000);

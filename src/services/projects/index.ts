@@ -37,21 +37,21 @@ export interface IPatchProjectParams {
 }
 
 export class Place {
-  name?: string;
-  workspace?: string;
-  location?: string;
+  public name?: string;
+  public workspace?: string;
+  public location?: string;
   @Expose({ name: 'google_place_id' })
-  googlePlaceId?: string;
+  public googlePlaceId?: string;
 }
 
 export class PatchProjectParams implements IPatchProjectParams {
-  name?: string;
-  slug?: string;
-  description?: string;
-  active?: boolean;
+  public name?: string;
+  public slug?: string;
+  public description?: string;
+  public active?: boolean;
   @Expose({ name: 'image_url' })
-  imageUrl?: string;
-  place?: Place;
+  public imageUrl?: string;
+  public place?: Place;
 
   constructor(patchProjectParams: IPatchProjectParams) {
     Object.assign(this, patchProjectParams);

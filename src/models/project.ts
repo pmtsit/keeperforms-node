@@ -6,7 +6,7 @@ export class Project {
   @Type(() => Workspace)
   public workspace!: Workspace;
   @Type(() => Location)
-  public location!: Location;
+  public location!: ILocation;
   public active!: boolean;
   public place?: Place;
   @Expose({ name: 'image_url' })
@@ -25,7 +25,7 @@ export class Workspace {
   public name!: string;
 }
 
-export interface Location {
+export interface ILocation {
   address?: string;
   latitude: number;
   longitude: number;
@@ -46,7 +46,7 @@ export class QuantitySettings {
   public active!: boolean;
   public style!: QuantitySectionStyle;
   public initReportWithPastItems!: boolean;
-  public columns!: QuantitySectionColumnDefinition[];
+  public columns!: IQuantitySectionColumnDefinition[];
 }
 
 export enum QuantitySectionStyle {
@@ -54,7 +54,7 @@ export enum QuantitySectionStyle {
   OLD = 'old',
 }
 
-export interface QuantitySectionColumnDefinition {
+export interface IQuantitySectionColumnDefinition {
   index: number;
   roles: ProjectMemberRole[];
   name: string;

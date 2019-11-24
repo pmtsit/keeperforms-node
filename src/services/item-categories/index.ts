@@ -29,10 +29,10 @@ export interface IPatchItemCategoryParams {
 }
 
 export class PatchItemCategoryParams implements IPatchItemCategoryParams {
-  name?: string;
-  description?: string;
+  public name?: string;
+  public description?: string;
   @Expose({ name: 'image_url' })
-  imageUrl?: string;
+  public imageUrl?: string;
 
   constructor(patchItemCategoryParams: IPatchItemCategoryParams) {
     Object.assign(this, patchItemCategoryParams);

@@ -3,6 +3,7 @@ import { Block } from '../../models/template';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
 
+// tslint:disable-next-line:no-empty-interface
 export interface ICreateBlockParams {}
 
 export class CreateBlockParams implements ICreateBlockParams {
@@ -11,6 +12,7 @@ export class CreateBlockParams implements ICreateBlockParams {
   }
 }
 
+// tslint:disable-next-line:no-empty-interface
 export interface IPatchBlockParams {}
 
 export class PatchBlockParams implements IPatchBlockParams {

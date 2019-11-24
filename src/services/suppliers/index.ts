@@ -29,10 +29,10 @@ export interface IPatchSupplierParams {
 }
 
 export class PatchSupplierParams implements IPatchSupplierParams {
-  name?: string;
-  description?: string;
+  public name?: string;
+  public description?: string;
   @Expose({ name: 'image_url' })
-  imageUrl?: string;
+  public imageUrl?: string;
 
   constructor(patchSupplierParams: IPatchSupplierParams) {
     Object.assign(this, patchSupplierParams);

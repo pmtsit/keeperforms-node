@@ -58,7 +58,7 @@ export enum ProjectMemberRole {
   SUPERVISOR = 'supervisor',
 }
 
-export interface QuantityTotal {
+export interface IQuantityTotal {
   category: QuantityItemCategory;
   value: number;
 }

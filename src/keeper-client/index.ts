@@ -16,18 +16,15 @@ import BlocksService from '../services/blocks';
 import PlacesService from '../services/places';
 import AlertsService from '../services/alerts';
 import ReportsService from '../services/reports';
+import StreamsService from '../services/streams';
 
 export default class KeeperClient {
-  private readonly debug = createDebug('keeper-client');
-  private readonly axios?: AxiosInstance;
-  private readonly username: string;
-  private apiKey: string;
-  private workspace: string;
   public readonly projects: ProjectsService;
   public readonly clients: ClientsService;
   public readonly workspaces: WorkspacesService;
   public readonly suppliers: SuppliersService;
   public readonly templates: TemplatesService;
+  public readonly streams: StreamsService;
   public readonly quantities: QuantitiesService;
   public readonly documents: DocumentsService;
   public readonly itemCategories: ItemCategoriesService;
@@ -39,6 +36,11 @@ export default class KeeperClient {
   public readonly places: PlacesService;
   public readonly alerts: AlertsService;
   public readonly reports: ReportsService;
+  private readonly debug = createDebug('keeper-client');
+  private readonly axios?: AxiosInstance;
+  private readonly username: string;
+  private apiKey: string;
+  private workspace: string;
 
   constructor(username: string, apiKey: string, workspace: string = '') {
     this.username = username;
@@ -69,6 +71,7 @@ export default class KeeperClient {
     this.workspaces = new WorkspacesService(this.axios);
     this.suppliers = new SuppliersService(this.axios);
     this.templates = new TemplatesService(this.axios);
+    this.streams = new StreamsService(this.axios);
     this.quantities = new QuantitiesService(this.axios);
     this.documents = new DocumentsService(this.axios);
     this.itemCategories = new ItemCategoriesService(this.axios);
@@ -92,7 +95,7 @@ export default class KeeperClient {
   public setToken(token: string): void {
     this.apiKey = token;
     if (this.axios) {
-      this.axios.defaults.headers['Authorization'] = `Bearer ${this.apiKey}`;
+      this.axios.defaults.headers.Authorization = `Bearer ${this.apiKey}`;
     }
   }
 }

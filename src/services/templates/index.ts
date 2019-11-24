@@ -30,10 +30,10 @@ export interface IPatchTemplateParams {
 }
 
 export class PatchTemplateParams implements IPatchTemplateParams {
-  name?: string;
-  description?: string;
+  public name?: string;
+  public description?: string;
   @Expose({ name: 'image_url' })
-  imageUrl?: string;
+  public imageUrl?: string;
 
   constructor(patchTemplateParams: IPatchTemplateParams) {
     Object.assign(this, patchTemplateParams);
@@ -120,7 +120,7 @@ export default class TemplatesService extends BaseService<Template> {
       return [];
     }
 
-    let params: any = {
+    const params: any = {
       limit,
       offset,
     };

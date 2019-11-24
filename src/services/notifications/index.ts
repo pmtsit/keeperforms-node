@@ -3,6 +3,7 @@ import { Notification } from '../../models/notification';
 import BaseService from '../base';
 import { classToPlain, Expose, plainToClass } from 'class-transformer';
 
+// tslint:disable-next-line:no-empty-interface
 export interface ICreateNotificationParams {}
 
 export class CreateNotificationParams implements ICreateNotificationParams {
@@ -11,6 +12,7 @@ export class CreateNotificationParams implements ICreateNotificationParams {
   }
 }
 
+// tslint:disable-next-line:no-empty-interface
 export interface IPatchNotificationParams {}
 
 export class PatchNotificationParams implements IPatchNotificationParams {

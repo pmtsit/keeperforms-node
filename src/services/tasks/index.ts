@@ -29,11 +29,11 @@ export interface IPatchTaskParams {
 }
 
 export class PatchTaskParams implements IPatchTaskParams {
-  name?: string;
-  description?: string;
-  planned?: Timing;
-  actual?: Timing;
-  estimation?: number;
+  public name?: string;
+  public description?: string;
+  public planned?: Timing;
+  public actual?: Timing;
+  public estimation?: number;
 
   constructor(patchTaskParams: IPatchTaskParams) {
     Object.assign(this, patchTaskParams);

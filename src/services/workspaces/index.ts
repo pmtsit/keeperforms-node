@@ -31,13 +31,13 @@ export interface IPatchWorkspaceParams {
 }
 
 export class PatchWorkspaceParams implements IPatchWorkspaceParams {
-  name?: string;
-  slug?: string;
-  description?: string;
-  active?: boolean;
+  public name?: string;
+  public slug?: string;
+  public description?: string;
+  public active?: boolean;
   @Expose({ name: 'image_url' })
-  imageUrl?: string;
-  place?: Place;
+  public imageUrl?: string;
+  public place?: Place;
 
   constructor(patchWorkspaceParams: IPatchWorkspaceParams) {
     Object.assign(this, patchWorkspaceParams);

@@ -24,7 +24,7 @@ export interface IPatchDocumentParams {
 }
 
 export class PatchDocumentParams implements IPatchDocumentParams {
-  date?: Date;
+  public date?: Date;
 
   constructor(patchDocumentParams: IPatchDocumentParams) {
     Object.assign(this, patchDocumentParams);
