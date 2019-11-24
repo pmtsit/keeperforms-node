@@ -52,9 +52,7 @@ export default class WorkspacesService extends BaseService<Workspace> {
   public async list(offset?: number, limit?: number): Promise<Workspace[]> {
     const result = await super._list(offset, limit);
 
-    console.log(result);
     const workspaces = result ? plainToClass(Workspace, result) : [];
-    console.log(workspaces);
 
     return workspaces;
   }

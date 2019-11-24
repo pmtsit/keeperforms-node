@@ -15,6 +15,7 @@ import PostsService from '../services/posts';
 import BlocksService from '../services/blocks';
 import PlacesService from '../services/places';
 import AlertsService from '../services/alerts';
+import ReportsService from '../services/reports';
 
 export default class KeeperClient {
   private readonly debug = createDebug('keeper-client');
@@ -37,6 +38,7 @@ export default class KeeperClient {
   public readonly blocks: BlocksService;
   public readonly places: PlacesService;
   public readonly alerts: AlertsService;
+  public readonly reports: ReportsService;
 
   constructor(username: string, apiKey: string, workspace: string = '') {
     this.username = username;
@@ -77,6 +79,7 @@ export default class KeeperClient {
     this.blocks = new BlocksService(this.axios);
     this.places = new PlacesService(this.axios);
     this.alerts = new AlertsService(this.axios);
+    this.reports = new ReportsService(this.axios);
   }
 
   public setWorkspace(workspace: string): void {
