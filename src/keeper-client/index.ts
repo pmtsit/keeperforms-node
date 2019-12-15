@@ -85,6 +85,12 @@ export default class KeeperClient {
     this.reports = new ReportsService(this.axios);
   }
 
+  public setBaseUrl(baseUrl: string): void {
+    if (this.axios) {
+      this.axios.defaults.baseURL = baseUrl;
+    }
+  }
+
   public setWorkspace(workspace: string): void {
     this.workspace = workspace;
     if (this.axios) {
