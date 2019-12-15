@@ -1,7 +1,7 @@
 {
   "name": "keeperforms",
   "description": "A KeeperForms helper library",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "author": "Open Source Team <opensource@pmtsit.com>",
   "homepage": "https://pmtsit.com",
   "keywords": [
