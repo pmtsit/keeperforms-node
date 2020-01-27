@@ -113,6 +113,24 @@ export default abstract class BaseService<T> {
     return item;
   }
 
+  protected async _post(path: string, params?: any): Promise<T | null> {
+    if (!this.axios) {
+      return null;
+    }
+
+    const res = await this.axios.post<T>(`${this.endpoint}/${path}`, params);
+
+    const item = res.data as T;
+
+    if (item) {
+      this.debug(`posted and got ${JSON.stringify(item)}`);
+    } else {
+      this.debug('item not updated');
+    }
+
+    return item;
+  }
+
   protected async _patch(id: string, params: any): Promise<T | null> {
     if (!this.axios) {
       return null;

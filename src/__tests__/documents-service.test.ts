@@ -10,7 +10,6 @@ let selectedWorkspace: Workspace | null = null;
 let selectedProject: Project | null = null;
 let selectedTemplate: Template | null = null;
 let createdDocument: Document | null = null;
-let documentName: string;
 
 let keeperClient: KeeperClient;
 
@@ -57,22 +56,18 @@ describe('Documents Service Tests', () => {
     } else if (!selectedTemplate) {
       throw new Error('cannot run test - selectedTemplate is null');
     } else {
-      documentName =
-        'document' +
-        Math.floor((Math.random() + 1) * 1000)
-          .toString()
-          .padStart(4, '0');
-
       console.log('template - ' + JSON.stringify(selectedTemplate));
+
+      const dt = new Date(2020, 2, 1);
 
       createdDocument = await keeperClient.documents.create({
         template: selectedTemplate.id,
         project: selectedProject.id,
-        date: selectedTemplate.requiresDate ? new Date() : undefined,
+        date: selectedTemplate.requiresDate ? dt : undefined,
       });
 
-      expect(createdDocument).toHaveProperty('name', documentName);
-      expect(createdDocument).toHaveProperty('description', 'A document created from the test suite');
+      expect(createdDocument).toHaveProperty('template.name', selectedTemplate.name);
+      expect(createdDocument).toHaveProperty('date');
     }
   }, 10000);
 
@@ -82,15 +77,15 @@ describe('Documents Service Tests', () => {
     } else if (!selectedTemplate) {
       throw new Error('cannot run test - selectedTemplate is null');
     } else {
+      const dt = new Date(2020, 2, 2);
       createdDocument = await keeperClient.documents.patch(createdDocument.id, {
-        date: selectedTemplate!.requiresDate ? new Date(new Date().getDate() + 1) : undefined,
+        date: selectedTemplate!.requiresDate ? dt : undefined,
       });
 
-      expect(createdDocument).toHaveProperty('name', documentName);
-      expect(createdDocument).toHaveProperty(
-        'description',
-        selectedTemplate.requiresDate ? new Date(new Date().getDate() + 1) : null,
-      );
+      expect(createdDocument).toHaveProperty('template.name', selectedTemplate.name);
+      if (selectedTemplate.requiresDate) {
+        expect(createdDocument).toHaveProperty('date', dt);
+      }
     }
   }, 10000);
 

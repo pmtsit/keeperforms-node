@@ -1,5 +1,6 @@
 import KeeperClient from '../index';
-import { Project, Workspace } from '../models/project';
+import { Project } from '../models/project';
+import { Workspace } from '../models/workspace';
 
 let originalNumberOfProjects = 0;
 let projects: Project[] = [];

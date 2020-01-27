@@ -15,4 +15,5 @@ export class Template {
   public requiresDate: boolean;
   @Expose({ name: 'keep_date_unique_across_project' })
   public keepDateUniqueAcrossProject: boolean;
+  public status: string;
 }

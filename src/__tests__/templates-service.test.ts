@@ -72,6 +72,30 @@ describe('Templates Service Tests', () => {
     }
   }, 10000);
 
+  test('publish template', async () => {
+    if (!createdTemplate) {
+      throw new Error('cannot run test - createdTemplate is null');
+    } else {
+      createdTemplate = await keeperClient.templates.publish(createdTemplate.id);
+
+      console.log(JSON.stringify(createdTemplate));
+
+      expect(createdTemplate).toHaveProperty('status', 'published');
+    }
+  }, 10000);
+
+  test('unpublish template', async () => {
+    if (!createdTemplate) {
+      throw new Error('cannot run test - createdTemplate is null');
+    } else {
+      createdTemplate = await keeperClient.templates.unpublish(createdTemplate.id);
+
+      console.log(JSON.stringify(createdTemplate));
+
+      expect(createdTemplate).toHaveProperty('status', 'draft');
+    }
+  }, 10000);
+
   test('Get template again', async () => {
     if (!createdTemplate) {
       throw new Error('cannot run test - createdTemplate is null');

@@ -116,6 +116,22 @@ export default class TemplatesService extends BaseService<Template> {
     return template;
   }
 
+  public async publish(id: string): Promise<Template | null> {
+    const result = await super._post(`${id}/publish`);
+
+    const template = result ? plainToClass(Template, result) : null;
+
+    return template;
+  }
+
+  public async unpublish(id: string): Promise<Template | null> {
+    const result = await super._post(`${id}/unpublish`);
+
+    const template = result ? plainToClass(Template, result) : null;
+
+    return template;
+  }
+
   public async blocksList(template: string, offset?: number, limit?: number): Promise<TemplateBlock[]> {
     if (!this.axios) {
       return [];
