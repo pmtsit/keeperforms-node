@@ -28,6 +28,8 @@ export interface IPatchTemplateParams {
   name?: string;
   description?: string;
   imageUrl?: string;
+  requiresDate?: boolean;
+  keepDateUniqueAcrossProject?: boolean;
 }
 
 export class PatchTemplateParams implements IPatchTemplateParams {
@@ -35,6 +37,10 @@ export class PatchTemplateParams implements IPatchTemplateParams {
   public description?: string;
   @Expose({ name: 'image_url' })
   public imageUrl?: string;
+  @Expose({ name: 'requires_date' })
+  public requiresDate?: boolean;
+  @Expose({ name: 'keep_date_unique_across_project' })
+  public keepDateUniqueAcrossProject?: boolean;
 
   constructor(patchTemplateParams: IPatchTemplateParams) {
     Object.assign(this, patchTemplateParams);
