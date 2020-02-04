@@ -176,7 +176,10 @@ export default class TemplatesService extends BaseService<Template> {
       return null;
     }
 
-    const result = await this.axios.post(`${this.endpoint}/${template}/blocks/`, params);
+    const result = await this.axios.post(
+      `${this.endpoint}/${template}/blocks/`,
+      classToPlain(new CreateTemplateBlockParams(params)),
+    );
 
     const data = result.data;
 
@@ -194,7 +197,10 @@ export default class TemplatesService extends BaseService<Template> {
       return null;
     }
 
-    const result = await this.axios.patch(`${this.endpoint}/${template}/blocks/${id}`, params);
+    const result = await this.axios.patch(
+      `${this.endpoint}/${template}/blocks/${id}`,
+      classToPlain(new PatchTemplateBlockParams(params)),
+    );
 
     const data = result.data;
 
